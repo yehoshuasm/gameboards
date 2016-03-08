@@ -1,0 +1,33 @@
+<div class="container">
+  <h2>Game Boards</h2>
+  <br/>
+  <div class="row">
+    <div class="input-group" ng-show="inputVisible">
+      <input type="text" ng-model="gameBoard.Name" placeholder="Name" class="form-control">
+      <input type="text" ng-model="gameBoard.Description" placeholder="Description" class="form-control">
+      <button class="btn btn-success" ng-click="accept()">Accept</button>
+      <button class="btn btn-danger" ng-click="cancel()">Cancel</button>
+    </div>
+    <button class="btn btn-default" ng-click="addGameBoard()" ng-show="addButtonVisible">Add a new Game Board</button>
+  </div>
+  <table>
+    <tr>
+     <th>Nombre</th>
+     <th>Descripción</th>
+    </tr>
+    <tr ng-repeat="gameBoard in gameBoards">
+      <td>{{gameBoard.Name}}</td>
+      <td>{{gameBoard.Description}}</td>
+      <td>
+        <span class="input-group-btn">
+          <button class="btn btn-default" ng-click="editGameBoard($index)" aria-label="Edit">Edit</button>
+        </span>
+      </td>
+      <td>
+        <span class="input-group-btn">
+          <button class="btn btn-default" ng-click="removeGameBoard($index)" aria-label="Remove">Remove</button>
+        </span>
+      </td>
+    </tr>
+  </table>
+</div>
